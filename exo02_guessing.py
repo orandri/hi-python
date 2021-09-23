@@ -1,8 +1,9 @@
 import random
+int_min = int(input("Choisissez l'intervalle min: "))
+int_max = int(input("Choisissez l'intervalle max: "))
+nombre_aleatoire = random.randint(int_min,int_max)
 
-nombre_aleatoire = random.randint(1,100)
-
-choix_user = int(input("Choisissez entre 1 et 100: "))
+choix_user = int(input("Choisissez entre "+ str(int_min) + " et " +str(int_max) +" : "))
 essai = 0
 while choix_user != nombre_aleatoire:
     if (choix_user < nombre_aleatoire):
@@ -13,4 +14,4 @@ while choix_user != nombre_aleatoire:
     essai +=1
     choix_user = int(input("Choisissez entre 1 et 100: "))
 
-print("VICTOIRE ! le nombre_aleatoire : "+ str(nombre_aleatoire) + "après "+str(essai)+ "essais")
+print("VICTOIRE ! le nombre_aleatoire : "+ str(nombre_aleatoire) + " après "+str(essai)+ "essais")

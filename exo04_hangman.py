@@ -253,41 +253,45 @@ english_words = ["aback", "abaft", "abandoned", "abashed", "aberrant", "abhorren
                  "yoke", "young", "youthful", "yummy", "zany", "zealous", "zebra", "zephyr", "zesty", "zinc", "zip",
                  "zipper", "zippy", "zonked", "zoo", "zoom"]
 
-indice_mot = random.randint(0,int(len(english_words)-1))
-mot = english_words[indice_mot]
-mot_affichés = "*" * len(mot)
-lettres_trouvees = ""
+recommence = ""
+while recommence != "n":
+    indice_mot = random.randint(0,int(len(english_words)-1))
+    mot = english_words[indice_mot]
+    mot_affichés = "*" * len(mot)
+    lettres_trouvees = ""
 ##mot_a_trouver = ""
-print(mot)
+##print(mot)
 
-essai = 10
+    essai = 10
 ##lettre = input("Donnez une lettre pour le mot : ")
-while essai > 0:
-    print ("mot à trouver : "+mot_affichés)
-    lettre = input("Donnez une lettre pour le mot : ")
-    if lettre in mot :
-        if lettre in lettres_trouvees:
-            print("Vous avez déjà trouvé cette lettre!!!")
+    while essai > 0:
+        print ("mot à trouver : "+mot_affichés)
+        lettre = input("Donnez une lettre pour le mot : ")
+        if lettre in mot :
+            if lettre in lettres_trouvees:
+                print("Vous avez déjà trouvé cette lettre!!!")
+            else:
+                print("Yesss")
+            lettres_trouvees += lettre
         else:
-            print("Yesss")
-        lettres_trouvees += lettre
-    else:
-        print("Pas la bonne lettre")
-        essai -= 1
-        print("Il reste "+str(essai)+" essais")
+            print("Pas la bonne lettre")
+            essai -= 1
+            print("Il reste "+str(essai)+" essais")
     
-    mot_affichés = ""
-    for i in mot :
-        if i in lettres_trouvees:
-            mot_affichés +=i + ""
-        else:
-            mot_affichés += "*"
-    if "*" not in mot_affichés:
-        print("Mot trouvé ! " + "'"+mot+"' avec "+str(essai)+" points restants")
-        break
+        mot_affichés = ""
+        for i in mot :
+            if i in lettres_trouvees:
+                mot_affichés +=i + ""
+            else:
+                mot_affichés += "*"
+        if "*" not in mot_affichés:
+            print("Mot trouvé ! " + "'"+mot+"' avec "+str(essai)+" points restants")
+            break
 
-if essai == 0:
-    print("Dommage, vous avez perdu ! Le mot était : "+mot)
+    if essai == 0:
+        print("Dommage, vous avez perdu ! Le mot était : "+mot)
+    recommence = input("Voulez-vous recommencer ? o/n ").lower()
+
     ##print(mot[x])
     
 ##print(english_words[2465])
